@@ -1,0 +1,29 @@
+{
+    "author": "Rectambe",
+    "dependencies": {},
+    "keywords": [],
+    "name": "thirds",
+    "pebble": {
+        "capabilities": [
+            "location"
+        ],
+        "displayName": "Thirds",
+        "enableMultiJS": true,
+        "messageKeys": [],
+        "projectType": "rocky",
+        "resources": {
+            "media": []
+        },
+        "sdkVersion": "3",
+        "targetPlatforms": [
+            "basalt",
+            "chalk",
+            "emery"
+        ],
+        "uuid": "611ee467-44cc-46f5-b385-07a6a8827061",
+        "watchapp": {
+            "watchface": true
+        }
+    },
+    "version": "1.0.0"
+}
