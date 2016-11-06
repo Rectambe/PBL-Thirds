@@ -1,28 +1,23 @@
 // Rocky.js
 var rocky = require('rocky');
 
-// Global object to store weather data
+
 var weather;
 
 rocky.on('hourchange', function(event) {
-  // Send a message to fetch the weather information (on startup and every hour)
   rocky.postMessage({'fetch': true});
 });
 
 rocky.on('minutechange', function(event) {
-  // Tick every minute
   rocky.requestDraw();
 });
 
 rocky.on('message', function(event) {
-  // Receive a message from the mobile device (pkjs)
   var message = event.data;
 
   if (message.weather) {
-    // Save the weather data
     weather = message.weather;
 
-    // Request a redraw so we see the information
     rocky.requestDraw();
   }
 });
@@ -34,11 +29,9 @@ rocky.on('draw', function(event) {
   // Clear the screen
   ctx.clearRect(0, 0, ctx.canvas.clientWidth, ctx.canvas.clientHeight);
 
-  // Draw the conditions (before clock hands, so it's drawn underneath them)
   if (weather) {
     drawWeather(ctx, weather);
   }
-  // Clear the screen
   ctx.clearRect(0, 0, ctx.canvas.clientWidth, ctx.canvas.clientHeight);
 
   // Determine the width and height of the display
@@ -52,14 +45,10 @@ rocky.on('draw', function(event) {
   
   ctx.fillRect(0, 0, w, h / 3);
 
-  // Set the text color
   ctx.fillStyle = 'black';
 
-  // Center align the text
   ctx.textAlign = 'center';
   
-
-  // Display the time, in the middle of the screen
     if (w == 180)
       {
         ctx.font = '38px bold numbers Leco-numbers';
@@ -151,7 +140,6 @@ rocky.on('draw', function(event) {
 });
 
 function drawWeather(ctx, weather) {
-  // Create a string describing the weather
   var weatherString = weather.celcius + 'ºC, ' + weather.desc;
   
   ctx.textAlign = 'center';
