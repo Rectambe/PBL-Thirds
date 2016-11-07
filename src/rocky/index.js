@@ -105,15 +105,17 @@ rocky.on('draw', function(event) {
         }
       }
   
-  ctx.fillStyle = 'gray';
-  ctx.strokeStyle = 'gray';
+  ctx.fillStyle = '#555555';
+  ctx.strokeStyle = '#555555';
   ctx.font = '18px Gothic';
   
     if (w == 180)
       {
         ctx.textAlign = 'center';
         ctx.fillText('Pebble Time Round', w / 2, 122, uw);
-        ctx.fillText('Chalk', w / 2 - 30, 142, uw);
+        ctx.font = '14px Gothic';
+        ctx.fillText(weather.name, w / 2, 142, uw);
+        ctx.fillText('(' + weather.lon + ',' + weather.lat + ')', w / 2, 155, uw);
         //ctx.strokeRect(w / 3 * 2 - 12, 151, 5, 9);
         //ctx.fillRect(w / 3 * 2 - 12, 149, 4, 2);
         //ctx.textAlign = 'left';
@@ -124,7 +126,7 @@ rocky.on('draw', function(event) {
       {
         ctx.textAlign = 'left';
         ctx.fillText('Pebble Time 2', 5, 155, uw);
-        ctx.fillText('Emery', 5, 200, uw);
+        ctx.fillText(weather.name  + ' ' + '(' + weather.lon + ',' + weather.lat + ')', 5, 200, uw);
         //ctx.strokeRect(w / 2 + 42, 212, 8, 13);
         //ctx.fillRect(w / 2 + 43, 210, 5, 2);
         //ctx.textAlign = 'left';
@@ -134,7 +136,8 @@ rocky.on('draw', function(event) {
       {
         ctx.textAlign = 'left';
         ctx.fillText('Pebble Time', 5, 112, uw);
-        ctx.fillText('Basalt', 5, 142, uw);
+        ctx.font = '14px Gothic';
+        ctx.fillText(weather.name + ' ' + '(' + weather.lon + ',' + weather.lat + ')', 5, 132, uw);
         //ctx.strokeRect(w / 3 * 2 - 12, 151, 5, 9);
         //ctx.fillRect(w / 3 * 2 - 12, 149, 4, 2);
         //ctx.textAlign = 'left';

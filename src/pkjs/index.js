@@ -17,7 +17,10 @@ Pebble.on('message', function(event) {
           'weather': {
             'celcius': Math.round(weatherData.main.temp - 273.15),
             'fahrenheit': Math.round((weatherData.main.temp - 273.15) * 9 / 5 + 32),
-            'desc': weatherData.weather[0].main
+            'desc': weatherData.weather[0].main,
+            'name': weatherData.name,
+            'lon': weatherData.coord.lon,
+            'lat': weatherData.coord.lat
           }
         });
       });
