@@ -34,7 +34,6 @@ rocky.on('draw', function(event) {
   }
   ctx.clearRect(0, 0, ctx.canvas.clientWidth, ctx.canvas.clientHeight);
 
-  // Determine the width and height of the display
   var uw = ctx.canvas.unobstructedWidth;
   var uh = ctx.canvas.unobstructedHeight;
   
@@ -78,24 +77,28 @@ rocky.on('draw', function(event) {
       {
         ctx.font = '18px Gothic';
         ctx.fillStyle = 'black';
+        ctx.fillText('Loading...', uw / 2, uh / 2 - 12, w);
         if (weather) 
         {
           drawWeather(ctx, weather);
         }
+        
       }
       else if (w == 200)
       {
         ctx.font = '24px Gothic';
         ctx.fillStyle = 'black';
+        ctx.fillText('Loading...', uw / 2, uh / 2 - 12, w);
         if (weather) 
         {
           drawWeather(ctx, weather);
-        }
+        } 
       }
      else
       {
         ctx.font = '18px Gothic';
         ctx.fillStyle = 'black';
+        ctx.fillText('Loading...', uw / 2, uh / 2 - 12, w);
         if (weather) 
         {
           drawWeather(ctx, weather);
@@ -143,39 +146,41 @@ function drawWeather(ctx, weather) {
   var weatherString = weather.celcius + 'ºC, ' + weather.desc;
   
   ctx.textAlign = 'center';
-  ctx.font = '18px Gothic';
+  ctx.font = '24px Gothic';
   
   if (weather.desc == 'Clear') 
     {
       ctx.fillStyle = '#00AAFF';
-      ctx.fillRect(0, ctx.canvas.unobstructedHeight / 3, ctx.canvas.unobstructedWidth, ctx.canvas.unobstructedHeight / 3);
+      ctx.fillRect(0, ctx.canvas.clientHeight / 3, ctx.canvas.clientWidth, ctx.canvas.clientHeight / 3);
       ctx.fillStyle = 'black';
-      ctx.fillText(weatherString, ctx.canvas.unobstructedWidth / 2, ctx.canvas.unobstructedHeight / 2 - 12);
+      ctx.fillText(weatherString, ctx.canvas.clientWidth / 2, ctx.canvas.clientHeight / 2 - 15);
     }
   else if (weather.desc == 'Rain') 
     {
       ctx.fillStyle = '#0000AA';
-      ctx.fillRect(0, ctx.canvas.unobstructedHeight / 3, ctx.canvas.unobstructedWidth, ctx.canvas.unobstructedHeight / 3);
+      ctx.fillRect(0, ctx.canvas.clientHeight / 3, ctx.canvas.clientWidth, ctx.canvas.clientHeight / 3);
       ctx.fillStyle = 'white';
-      ctx.fillText(weatherString, ctx.canvas.unobstructedWidth / 2, ctx.canvas.unobstructedHeight / 2 - 12);
+      ctx.fillText(weatherString, ctx.canvas.clientWidth / 2, ctx.canvas.clientHeight / 2 - 15);
     }
   else if (weather.desc == 'Clouds') 
     {
       ctx.fillStyle = 'gray';
-      ctx.fillRect(0, ctx.canvas.unobstructedHeight / 3, ctx.canvas.unobstructedWidth, ctx.canvas.unobstructedHeight / 3);
+      ctx.fillRect(0, ctx.canvas.clientHeight / 3, ctx.canvas.clientWidth, ctx.canvas.clientHeight / 3);
       ctx.fillStyle = 'black';
-      ctx.fillText(weatherString, ctx.canvas.unobstructedWidth / 2, ctx.canvas.unobstructedHeight / 2 - 12);
+      ctx.fillText(weatherString, ctx.canvas.clientWidth / 2, ctx.canvas.clientHeight / 2 - 15);
     }
   else if (weather.desc == 'Snow') 
     {
       ctx.fillStyle = '#55FFFF';
-      ctx.fillRect(0, ctx.canvas.unobstructedHeight / 3, ctx.canvas.unobstructedWidth, ctx.canvas.unobstructedHeight / 3);
+      ctx.fillRect(0, ctx.canvas.clientHeight / 3, ctx.canvas.clientWidth, ctx.canvas.clientHeight / 3);
       ctx.fillStyle = 'black';
-      ctx.fillText(weatherString, ctx.canvas.unobstructedWidth / 2, ctx.canvas.unobstructedHeight / 2 - 12);
+      ctx.fillText(weatherString, ctx.canvas.clientWidth / 2, ctx.canvas.unobstructedHeight / 2 - 15);
     }
   else
     {
       ctx.fillStyle = 'gray';
-      ctx.fillRect(0, ctx.canvas.unobstructedHeight / 3, ctx.canvas.unobstructedWidth, ctx.canvas.unobstructedHeight / 3);
+      ctx.fillRect(0, ctx.canvas.clientHeight / 3, ctx.canvas.clientWidth, ctx.canvas.clientHeight / 3);
+      ctx.fillStyle = 'black';
+      ctx.fillText(weatherString, ctx.canvas.clientWidth / 2, ctx.canvas.clientHeight / 2 - 15);
     }  
 }
