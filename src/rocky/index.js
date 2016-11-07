@@ -74,14 +74,14 @@ rocky.on('draw', function(event) {
       else if (w == 200)
         {
         ctx.font = '42px bold numbers Leco-numbers';
-        ctx.fillText(twelve(d.getHours) + ':' + padmin(d.getMinutes()), w / 2, 2, w);
+        ctx.fillText(twelve(d.getHours()) + ':' + padmin(d.getMinutes()), w / 2, 2, w);
         ctx.font = '24px Gothic';
         ctx.fillText(d.toLocaleDateString(undefined, {day: 'numeric'}) + ' ' + d.toLocaleDateString(undefined, {month: 'long'}), w / 2, 42, uw);
        }
      else
        {
         ctx.font = '38px bold numbers Leco-numbers';
-        ctx.fillText(twelve(d.getHours) + ':' + padmin(d.getMinutes()), w / 2, 2, w);
+        ctx.fillText(twelve(d.getHours()) + ':' + padmin(d.getMinutes()), w / 2, -1, w);
         ctx.font = '18px Gothic';
         ctx.fillText(d.toLocaleDateString(undefined, {day: 'numeric'}) + ' ' + d.toLocaleDateString(undefined, {month: 'long'}), w / 2, 35, uw);
        }
