@@ -1,8 +1,24 @@
 // Rocky.js
 var rocky = require('rocky');
 
-
 var weather;
+
+
+function twelve(n) {
+  if (n >12)
+    {
+      return ("0" + n - 12);
+    }
+  else
+    {
+      return n;
+    }
+}
+
+function padmin(n) {
+    return (n < 10) ? ("0" + n) : n;
+}
+
 
 rocky.on('hourchange', function(event) {
   rocky.postMessage({'fetch': true});
@@ -51,21 +67,21 @@ rocky.on('draw', function(event) {
     if (w == 180)
       {
         ctx.font = '38px bold numbers Leco-numbers';
-        ctx.fillText(d.toLocaleTimeString(undefined, {hour: 'numeric'}) + ':' + d.toLocaleTimeString(undefined, {minute: '2-digit'}), w / 2, 2, uw);
+        ctx.fillText(twelve(d.getHours()) + ':' + padmin(d.getMinutes()), w / 2, 2, w);
         ctx.font = '18px Gothic';
         ctx.fillText(d.toLocaleDateString(undefined, {day: 'numeric'}) + ' ' + d.toLocaleDateString(undefined, {month: 'long'}), w / 2, 38, uw);
       }
       else if (w == 200)
         {
         ctx.font = '42px bold numbers Leco-numbers';
-        ctx.fillText(d.toLocaleTimeString(undefined, {hour: 'numeric'}) + ':' + d.toLocaleTimeString(undefined, {minute: '2-digit'}), w / 2, 0, uw);
+        ctx.fillText(twelve(d.getHours) + ':' + padmin(d.getMinutes()), w / 2, 2, w);
         ctx.font = '24px Gothic';
         ctx.fillText(d.toLocaleDateString(undefined, {day: 'numeric'}) + ' ' + d.toLocaleDateString(undefined, {month: 'long'}), w / 2, 42, uw);
        }
      else
        {
         ctx.font = '38px bold numbers Leco-numbers';
-        ctx.fillText(d.toLocaleTimeString(undefined, {hour: 'numeric'}) + ':' + d.toLocaleTimeString(undefined, {minute: '2-digit'}), w / 2, -1, uw);
+        ctx.fillText(twelve(d.getHours) + ':' + padmin(d.getMinutes()), w / 2, 2, w);
         ctx.font = '18px Gothic';
         ctx.fillText(d.toLocaleDateString(undefined, {day: 'numeric'}) + ' ' + d.toLocaleDateString(undefined, {month: 'long'}), w / 2, 35, uw);
        }
@@ -105,8 +121,8 @@ rocky.on('draw', function(event) {
         }
       }
   
-  ctx.fillStyle = '#555555';
-  ctx.strokeStyle = '#555555';
+  ctx.fillStyle = 'gray';
+  ctx.strokeStyle = 'gray';
   ctx.font = '18px Gothic';
   
     if (w == 180)
