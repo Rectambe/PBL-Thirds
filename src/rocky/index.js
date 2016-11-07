@@ -77,7 +77,7 @@ rocky.on('draw', function(event) {
       {
         ctx.font = '18px Gothic';
         ctx.fillStyle = 'black';
-        ctx.fillText('Loading...', uw / 2, uh / 2 - 12, w);
+        ctx.fillText('Loading...', w / 2, h / 2 - 12, w);
         if (weather) 
         {
           drawWeather(ctx, weather);
@@ -88,7 +88,7 @@ rocky.on('draw', function(event) {
       {
         ctx.font = '24px Gothic';
         ctx.fillStyle = 'black';
-        ctx.fillText('Loading...', uw / 2, uh / 2 - 12, w);
+        ctx.fillText('Loading...', w / 2, h / 2 - 12, w);
         if (weather) 
         {
           drawWeather(ctx, weather);
@@ -98,7 +98,7 @@ rocky.on('draw', function(event) {
       {
         ctx.font = '18px Gothic';
         ctx.fillStyle = 'black';
-        ctx.fillText('Loading...', uw / 2, uh / 2 - 12, w);
+        ctx.fillText('Loading...', w / 2, h / 2 - 12, w);
         if (weather) 
         {
           drawWeather(ctx, weather);
