@@ -3,7 +3,6 @@ var rocky = require('rocky');
 
 var weather;
 
-
 function twelve(n) {
   if (n >12)
     {
@@ -18,7 +17,6 @@ function twelve(n) {
 function padmin(n) {
     return (n < 10) ? ("0" + n) : n;
 }
-
 
 rocky.on('hourchange', function(event) {
   rocky.postMessage({'fetch': true});
@@ -49,12 +47,11 @@ rocky.on('draw', function(event) {
     drawWeather(ctx, weather);
   }
   ctx.clearRect(0, 0, ctx.canvas.clientWidth, ctx.canvas.clientHeight);
-
-  var uw = ctx.canvas.unobstructedWidth;
-  var uh = ctx.canvas.unobstructedHeight;
   
   var w = ctx.canvas.clientWidth;
   var h = ctx.canvas.clientHeight;
+  
+  var uw = ctx.canvas.unobstructedWidth;
   
   ctx.fillStyle = 'white';
   
@@ -93,10 +90,10 @@ rocky.on('draw', function(event) {
       {
         ctx.font = '18px Gothic';
         ctx.fillStyle = 'black';
-        ctx.fillText('Loading...', w / 2, h / 2 - 12, w);
+        ctx.fillText('Loading...\n Do you have an internet connection?', w / 2, h / 2 - 32, w );
         if (weather) 
         {
-          drawWeather(ctx, weather);
+          //drawWeather(ctx, weather);
         }
         
       }
@@ -104,7 +101,7 @@ rocky.on('draw', function(event) {
       {
         ctx.font = '24px Gothic';
         ctx.fillStyle = 'black';
-        ctx.fillText('Loading...', w / 2, h / 2 - 12, w);
+        ctx.fillText('Loading...\n Do you have an internet connection?', w / 2, h / 2 - 32, w );
         if (weather) 
         {
           drawWeather(ctx, weather);
@@ -114,7 +111,7 @@ rocky.on('draw', function(event) {
       {
         ctx.font = '18px Gothic';
         ctx.fillStyle = 'black';
-        ctx.fillText('Loading...', w / 2, h / 2 - 12, w);
+        ctx.fillText('Loading...\n Do you have an internet connection?', w / 2, h / 2 - 32, w );
         if (weather) 
         {
           drawWeather(ctx, weather);
@@ -128,7 +125,7 @@ rocky.on('draw', function(event) {
     if (w == 180)
       {
         ctx.textAlign = 'center';
-        ctx.fillText('Pebble Time Round', w / 2, 122, uw);
+        ctx.fillText('Pebble Time Round', w / 2, 125, uw);
         ctx.font = '14px Gothic';
         ctx.fillText(weather.name, w / 2, 142, uw);
         ctx.fillText('(' + weather.lon + ',' + weather.lat + ')', w / 2, 155, uw);
@@ -172,34 +169,41 @@ function drawWeather(ctx, weather) {
       ctx.fillStyle = '#00AAFF';
       ctx.fillRect(0, ctx.canvas.clientHeight / 3, ctx.canvas.clientWidth, ctx.canvas.clientHeight / 3);
       ctx.fillStyle = 'black';
-      ctx.fillText(weatherString, ctx.canvas.clientWidth / 2, ctx.canvas.clientHeight / 2 - 15);
+      ctx.fillText(weatherString, ctx.canvas.clientWidth / 2, ctx.canvas.clientHeight / 2 - 16);
     }
   else if (weather.desc == 'Rain') 
     {
       ctx.fillStyle = '#0000AA';
       ctx.fillRect(0, ctx.canvas.clientHeight / 3, ctx.canvas.clientWidth, ctx.canvas.clientHeight / 3);
       ctx.fillStyle = 'white';
-      ctx.fillText(weatherString, ctx.canvas.clientWidth / 2, ctx.canvas.clientHeight / 2 - 15);
+      ctx.fillText(weatherString, ctx.canvas.clientWidth / 2, ctx.canvas.clientHeight / 2 - 16);
     }
   else if (weather.desc == 'Clouds') 
     {
       ctx.fillStyle = 'gray';
       ctx.fillRect(0, ctx.canvas.clientHeight / 3, ctx.canvas.clientWidth, ctx.canvas.clientHeight / 3);
       ctx.fillStyle = 'black';
-      ctx.fillText(weatherString, ctx.canvas.clientWidth / 2, ctx.canvas.clientHeight / 2 - 15);
+      ctx.fillText(weatherString, ctx.canvas.clientWidth / 2, ctx.canvas.clientHeight / 2 - 16);
     }
   else if (weather.desc == 'Snow') 
     {
       ctx.fillStyle = '#55FFFF';
       ctx.fillRect(0, ctx.canvas.clientHeight / 3, ctx.canvas.clientWidth, ctx.canvas.clientHeight / 3);
       ctx.fillStyle = 'black';
-      ctx.fillText(weatherString, ctx.canvas.clientWidth / 2, ctx.canvas.unobstructedHeight / 2 - 15);
+      ctx.fillText(weatherString, ctx.canvas.clientWidth / 2, ctx.canvas.clientHeight / 2 - 16);
+    }
+  else if (weather.desc == 'Drizzle') 
+    {
+      ctx.fillStyle = '#00AAAA';
+      ctx.fillRect(0, ctx.canvas.clientHeight / 3, ctx.canvas.clientWidth, ctx.canvas.clientHeight / 3);
+      ctx.fillStyle = 'black';
+      ctx.fillText(weatherString, ctx.canvas.clientWidth / 2, ctx.canvas.clientHeight / 2 - 16);
     }
   else
     {
       ctx.fillStyle = 'gray';
       ctx.fillRect(0, ctx.canvas.clientHeight / 3, ctx.canvas.clientWidth, ctx.canvas.clientHeight / 3);
       ctx.fillStyle = 'black';
-      ctx.fillText(weatherString, ctx.canvas.clientWidth / 2, ctx.canvas.clientHeight / 2 - 15);
+      ctx.fillText(weatherString, ctx.canvas.clientWidth / 2, ctx.canvas.clientHeight / 2 - 16);
     }  
 }

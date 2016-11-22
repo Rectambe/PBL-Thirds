@@ -17,7 +17,8 @@
         "sdkVersion": "3",
         "targetPlatforms": [
             "basalt",
-            "chalk"
+            "chalk",
+            "emery"
         ],
         "uuid": "611ee467-44cc-46f5-b385-07a6a8827061",
         "watchapp": {
