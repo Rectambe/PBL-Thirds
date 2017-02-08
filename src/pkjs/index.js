@@ -1,4 +1,4 @@
-var myAPIKey = '830cf96b9425c0e02bca694beeb9a46c';
+var myAPIKey = 'ed653056373067f36ba675c61f49669c';
 
 Pebble.on('message', function(event) {
   var message = event.data;
@@ -20,7 +20,9 @@ Pebble.on('message', function(event) {
             'desc': weatherData.weather[0].main,
             'name': weatherData.name,
             'lon': weatherData.coord.lon,
-            'lat': weatherData.coord.lat
+            'lat': weatherData.coord.lat,
+            //'rise':weatherData.sys.sunrise,
+            //'set':weatherData.sys.sunset
           }
         });
       });

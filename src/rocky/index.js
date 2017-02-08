@@ -68,13 +68,6 @@ rocky.on('draw', function(event) {
         ctx.font = '18px Gothic';
         ctx.fillText(d.toLocaleDateString(undefined, {day: 'numeric'}) + ' ' + d.toLocaleDateString(undefined, {month: 'long'}), w / 2, 38, uw);
       }
-      else if (w == 200)
-        {
-        ctx.font = '42px bold numbers Leco-numbers';
-        ctx.fillText(twelve(d.getHours()) + ':' + padmin(d.getMinutes()), w / 2, 2, w);
-        ctx.font = '24px Gothic';
-        ctx.fillText(d.toLocaleDateString(undefined, {day: 'numeric'}) + ' ' + d.toLocaleDateString(undefined, {month: 'long'}), w / 2, 42, uw);
-       }
      else
        {
         ctx.font = '38px bold numbers Leco-numbers';
@@ -93,19 +86,9 @@ rocky.on('draw', function(event) {
         ctx.fillText('Loading...\n Do you have an internet connection?', w / 2, h / 2 - 32, w );
         if (weather) 
         {
-          //drawWeather(ctx, weather);
+          drawWeather(ctx, weather);
         }
         
-      }
-      else if (w == 200)
-      {
-        ctx.font = '24px Gothic';
-        ctx.fillStyle = 'black';
-        ctx.fillText('Loading...\n Do you have an internet connection?', w / 2, h / 2 - 32, w );
-        if (weather) 
-        {
-          drawWeather(ctx, weather);
-        } 
       }
      else
       {
@@ -125,32 +108,59 @@ rocky.on('draw', function(event) {
     if (w == 180)
       {
         ctx.textAlign = 'center';
-        ctx.fillText('Pebble Time Round', w / 2, 125, uw);
+        ctx.fillText('Pebble Time Round', w / 2, 120, uw);
         ctx.font = '14px Gothic';
-        ctx.fillText(weather.name, w / 2, 142, uw);
-        ctx.fillText('(' + weather.lon + ',' + weather.lat + ')', w / 2, 155, uw);
+        
+        //Says Greeting based on the time
+        if (d.getHours() >= 5 && d.getHours() < 12)
+          {
+            ctx.fillText("Good Morning", w / 2, 155, uw);
+          }
+        else if (d.getHours() >= 12 && d.getHours() < 17)
+          {
+            ctx.fillText("Good Afternoon", w / 2, 155, uw);
+          }
+        else if (d.getHours() >= 17 && d.getHours() < 20)
+          {
+            ctx.fillText("Good Evening", w / 2, 155, uw);
+          }
+        else if (d.getHours() >= 20 && d.getHours() < 5)
+          {
+            ctx.fillText("Good Night", w / 2, 155, uw);
+          }
+        ctx.fillText(weather.name, w / 2, 140, uw);
+        //ctx.fillText(, w / 2, 155, uw);
         //ctx.strokeRect(w / 3 * 2 - 12, 151, 5, 9);
         //ctx.fillRect(w / 3 * 2 - 12, 149, 4, 2);
         //ctx.textAlign = 'left';
         //ctx.fillText('N/A', w / 2 + 25, 142, uw);
-        
-      }
-    else if (w == 200)
-      {
-        ctx.textAlign = 'left';
-        ctx.fillText('Pebble Time 2', 5, 155, uw);
-        ctx.fillText(weather.name  + ' ' + '(' + weather.lon + ',' + weather.lat + ')', 5, 200, uw);
-        //ctx.strokeRect(w / 2 + 42, 212, 8, 13);
-        //ctx.fillRect(w / 2 + 43, 210, 5, 2);
-        //ctx.textAlign = 'left';
-        //ctx.fillText('N/A', w / 2 + 55, 200, uw);
       }
     else
       {
         ctx.textAlign = 'left';
         ctx.fillText('Pebble Time', 5, 112, uw);
         ctx.font = '14px Gothic';
-        ctx.fillText(weather.name + ' ' + '(' + weather.lon + ',' + weather.lat + ')', 5, 132, uw);
+        
+        //Says Greeting based on the time
+        if (d.getHours() >= 5 && d.getHours() < 12)
+          {
+            ctx.fillText("Good Morning", 5, 148, uw);
+          }
+        else if (d.getHours() >= 12 && d.getHours() < 17)
+          {
+            ctx.fillText("Good Afternoon", 5, 148, uw);
+          }
+        else if (d.getHours() >= 17 && d.getHours() < 20)
+          {
+            ctx.fillText("Good Evening", 5, 148, uw);
+          }
+        else if (d.getHours() >= 20 && d.getHours() < 5)
+          {
+            ctx.fillText("Goodnight", 5, 148, uw);
+          }
+        
+        ctx.fillText(weather.name, 5, 132, uw);
+        console.log(weather.desc);
         //ctx.strokeRect(w / 3 * 2 - 12, 151, 5, 9);
         //ctx.fillRect(w / 3 * 2 - 12, 149, 4, 2);
         //ctx.textAlign = 'left';

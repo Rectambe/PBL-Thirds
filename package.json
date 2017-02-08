@@ -5,7 +5,8 @@
     "name": "thirds",
     "pebble": {
         "capabilities": [
-            "location"
+            "location",
+            "configurable"
         ],
         "displayName": "Thirds",
         "enableMultiJS": true,
@@ -17,13 +18,12 @@
         "sdkVersion": "3",
         "targetPlatforms": [
             "basalt",
-            "chalk",
-            "emery"
+            "chalk"
         ],
         "uuid": "611ee467-44cc-46f5-b385-07a6a8827061",
         "watchapp": {
             "watchface": true
         }
     },
-    "version": "1.1.0"
+    "version": "0.1.0"
 }
